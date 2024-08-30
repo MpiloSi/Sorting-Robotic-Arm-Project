@@ -1,16 +1,12 @@
 import unittest
 import cv2
-# from robodk import Robolink
-import sys
-import os
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'path_to_robodk_folder'))
-from robodk import *
+from robodk import robolink  # Correct import
 from src.camera import CameraHandler
 
 class TestCameraHandler(unittest.TestCase):
     def setUp(self):
         """Set up the RoboDK connection and CameraHandler instance."""
-        self.RDK = Robolink()
+        self.RDK = robolink.Robolink()  # Use robolink.Robolink()
         self.camera_item = self.RDK.Item('Camera')  # Replace with your camera's name
         self.camera_handler = CameraHandler(self.camera_item)
 

@@ -1,0 +1,20 @@
+{
+    "color_ranges": {
+        "red": {
+            "lower": [0, 100, 100],
+            "upper": [10, 255, 255]
+        },
+        "green": {
+            "lower": [40, 100, 100],
+            "upper": [80, 255, 255]
+        },
+        "blue": {
+            "lower": [100, 100, 100],
+            "upper": [140, 255, 255]
+        }
+    },
+    "shape_templates": {
+        "circle": "path/to/circle_template.png",
+        "square": "path/to/square_template.png"
+    }
+}

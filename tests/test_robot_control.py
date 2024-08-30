@@ -1,11 +1,11 @@
 import unittest
-from robodk import Robolink, Item
+from robodk import robolink  # Correct import
 from src.robot_control import RobotController
 
 class TestRobotController(unittest.TestCase):
     def setUp(self):
         """Set up the RoboDK connection and RobotController instance."""
-        self.RDK = Robolink()
+        self.RDK = robolink.Robolink()  # Use robolink.Robolink()
         self.robot_item = self.RDK.Item('Robot')  # Replace with your robot's name
         self.robot_controller = RobotController(self.robot_item)
 
