@@ -1,6 +1,10 @@
 import unittest
 import cv2
-from robodk import Robolink
+# from robodk import Robolink
+import sys
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'path_to_robodk_folder'))
+from robodk import *
 from src.camera import CameraHandler
 
 class TestCameraHandler(unittest.TestCase):
