@@ -11,9 +11,11 @@ class TestRobotController(unittest.TestCase):
 
     def test_move_to_position(self):
         """Test if the robot can move to a specified position."""
-        target_position = [100, 200, 300]
-        self.robot_controller.move_to_position(target_position)
-        # Add assertions to check if the robot reached the target position
+        target_position = [0, 0, 0, 0, 0, 0]  # Adjust this based on your robot's limits
+        try:
+            self.robot_controller.move_to_position(target_position)
+        except ValueError as e:
+            self.fail(f"Failed to move to position: {e}")
 
     def test_pick_object(self):
         """Test the pick action of the robotic arm."""

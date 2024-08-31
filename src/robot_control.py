@@ -5,18 +5,18 @@ class RobotController:
         self.robot = robot_item
 
     def move_to_position(self, target_position, speed=100):
-    #"""
-    #Move the robotic arm to the specified target position.
-    #This should be within the robot's joint limits.
-    #"""
-    # Check if the target position is within the robot's joint limits
-    joint_limits = self.robot.JointLimits()  # Get the joint limits
-    for i, pos in enumerate(target_position):
-        if pos < joint_limits[i][0] or pos > joint_limits[i][1]:
-            raise ValueError(f"Target position {pos} for joint {i} is outside limits.")
+        """
+        Move the robotic arm to the specified target position.
+        This should be within the robot's joint limits.
+        """
+        # Check if the target position is within the robot's joint limits
+        joint_limits = self.robot.JointLimits()  # Get the joint limits
+        for i, pos in enumerate(target_position):
+            if pos < joint_limits[i][0] or pos > joint_limits[i][1]:
+                raise ValueError(f"Target position {pos} for joint {i} is outside limits.")
 
-    # Move the robot to the target position
-    self.robot.MoveJ(target_position, speed)
+        # Move the robot to the target position
+        self.robot.MoveJ(target_position, speed)
 
     def pick_object(self, bbox):
         """
