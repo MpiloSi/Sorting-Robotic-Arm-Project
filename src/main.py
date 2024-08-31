@@ -27,10 +27,16 @@ def main():
         detected_objects = vision_processor.detect_objects(image)
         
         # Apply sorting logic to the detected objects
-        sorted_objects = sorting_logic.sort_objects(detected_objects)
+        sorting_actions = sorting_logic.sort_objects(detected_objects)
         
         # Control the robotic arm to sort the objects
-        robot_controller.sort_objects(sorted_objects)
+        # robot_controller.sort_objects(sorting_actions)
+        
+        # Control the robotic arm to pick and place the objects
+        for action in sorting_actions:
+            if action['action'] == 'pick':
+                robot_controller.pick_object(action['bbox'])
+                robot_controller.place_object(action['target_position'])
         
         # Display the processed image (optional)
         processed_image = vision_processor.draw_bounding_boxes(image, detected_objects)
