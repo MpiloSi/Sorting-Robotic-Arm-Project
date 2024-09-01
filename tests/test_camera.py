@@ -6,7 +6,7 @@ from src.camera import CameraHandler
 class TestCameraHandler(unittest.TestCase):
     def setUp(self):
         """Set up the RoboDK connection and CameraHandler instance."""
-        self.RDK = robolink.Robolink()  # Use robolink.Robolink()
+        self.RDK = robolink()  # Use robolink.Robolink()
         self.camera_item = self.RDK.Item('Camera')  # Replace with your camera's name
         self.camera_handler = CameraHandler(self.camera_item)
 
@@ -31,3 +31,4 @@ class TestCameraHandler(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
